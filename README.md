@@ -16,7 +16,7 @@ SdNotifyEx.watchdog()
 
 To start auto watchdog setter
 ```elixir
-config :sd_notify_ex, :auto_watchdog, true
+config :sd_notify_ex, auto_watchdog: true
 ```
 
 

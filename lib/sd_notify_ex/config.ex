@@ -2,7 +2,7 @@ defmodule SdNotifyEx.Config do
   @moduledoc """
   To start AutoWatchdog, set config
   ```elixir
-  config :sd_notify_ex, :auto_watchdog, true
+  config :sd_notify_ex, auto_watchdog: true
   ```
   """
 
