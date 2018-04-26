@@ -9,6 +9,7 @@ defmodule SdNotifyEx.AutoWatchdog do
 
   @set_per_interval 3
 
+  @spec start_link(any()) :: GenServer.on_start()
   def start_link(_ \\ []) do
     GenServer.start_link(__MODULE__, [], name: __MODULE__)
   end
@@ -26,7 +27,7 @@ defmodule SdNotifyEx.AutoWatchdog do
   end
 
   def handle_info(:set, timer) do
-    SdNotifyEx.watchdog()
+    _ = SdNotifyEx.watchdog()
     sched(timer)
     {:noreply, timer}
   end

@@ -6,11 +6,13 @@ defmodule SdNotifyEx.Config do
   ```
   """
 
+  @spec sockaddr() :: String.t() | nil
   def sockaddr do
     System.get_env("NOTIFY_SOCKET")
     |> unix_name
   end
 
+  @spec watchdog_msec() :: non_neg_integer() | nil
   def watchdog_msec do
     usec_str = System.get_env("WATCHDOG_USEC")
 
@@ -23,6 +25,7 @@ defmodule SdNotifyEx.Config do
     end
   end
 
+  @spec auto_watchdog() :: boolean() | as_boolean(nil)
   def auto_watchdog do
     config = Application.get_env(:sd_notify_ex, :auto_watchdog, false)
     config && sockaddr() && watchdog_msec() && true
